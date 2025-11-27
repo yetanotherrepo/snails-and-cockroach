@@ -8,17 +8,17 @@ interface Props {
 }
 
 const CHECKS = [
-    { id: 0, title: "Stop Words", description: "Does any part contain stop words?" },
-    { id: 1, title: "Completeness", description: "Is the statement complete? (Who doing What with Whom)" },
-    { id: 2, title: "Specificity", description: "Is 'Who' a specific person or group?" },
-    { id: 3, title: "Single Thought", description: "Is there only one thought per statement?" },
-    { id: 4, title: "Comparatives", description: "Are there numbers for comparisons?" },
-    { id: 5, title: "Qualitatives", description: "Can you verify the properties?" },
-    { id: 6, title: "Observability", description: "Is it an observable action?" },
-    { id: 7, title: "Quantifiers", description: "Is the quantity clear?" },
-    { id: 8, title: "Logical Flow", description: "Does the IF-THEN-BECAUSE flow make sense?" },
-    { id: 9, title: "Tautology", description: "Is there any circular logic?" },
-    { id: 10, title: "Causality", description: "Does the 'Because' explain the mechanism?" },
+    { id: 0, title: "Стоп-слова", description: "Содержит ли текст стоп-слова?" },
+    { id: 1, title: "Полнота", description: "Утверждение полное? (Кто делает Что с Чем)" },
+    { id: 2, title: "Конкретика", description: "Является ли 'Кто' конкретным лицом?" },
+    { id: 3, title: "Одна мысль", description: "В одном утверждении — одна мысль?" },
+    { id: 4, title: "Сравнения", description: "Есть ли цифры для сравнений?" },
+    { id: 5, title: "Качественные", description: "Можно ли проверить это свойство?" },
+    { id: 6, title: "Наблюдаемость", description: "Это наблюдаемое действие?" },
+    { id: 7, title: "Количество", description: "Ясно ли количество?" },
+    { id: 8, title: "Логика", description: "Звучит ли связка ЕСЛИ-ТО-ПОТОМУ ЧТО разумно?" },
+    { id: 9, title: "Тавтология", description: "Нет ли круговой логики?" },
+    { id: 10, title: "Причинность", description: "Объясняет ли 'Потому что' механизм?" },
 ];
 
 const StepAnalysis: React.FC<Props> = ({ state, onComplete, onBack }) => {
@@ -37,26 +37,26 @@ const StepAnalysis: React.FC<Props> = ({ state, onComplete, onBack }) => {
             case 0:
                 return (
                     <div>
-                        <p className="mb-4">Check for stop words like "always", "never", "everyone", "no one".</p>
+                        <p className="mb-4">Проверьте наличие стоп-слов, таких как "всегда", "никогда", "все", "никто".</p>
                         <div className="bg-white/10 p-4 rounded-lg mb-4">
-                            <p><strong>Goal:</strong> {state.goal}</p>
-                            <p><strong>Resistance:</strong> {state.resistance}</p>
-                            <p><strong>Justification:</strong> {state.justification}</p>
+                            <p><strong>Улитка:</strong> {state.goal}</p>
+                            <p><strong>Таракан:</strong> {state.resistance}</p>
+                            <p><strong>Обоснование:</strong> {state.justification}</p>
                         </div>
-                        <p className="text-sm opacity-80">If you find any, rewrite them to be more specific.</p>
+                        <p className="text-sm opacity-80">Если нашли, перепишите более конкретно.</p>
                     </div>
                 );
             case 1:
                 return (
                     <div>
-                        <p className="mb-4">Ensure each statement has a clear <strong>Subject</strong>, <strong>Object</strong>, and <strong>Predicate</strong>.</p>
+                        <p className="mb-4">Убедитесь, что в каждом утверждении есть четкие <strong>Субъект</strong>, <strong>Объект</strong> и <strong>Предикат</strong>.</p>
                         <div className="space-y-4">
                             <div className="bg-white/10 p-4 rounded-lg">
-                                <p className="text-sm opacity-70 mb-1">Goal</p>
+                                <p className="text-sm opacity-70 mb-1">Улитка</p>
                                 <p>{state.goal}</p>
                             </div>
                             <div className="bg-white/10 p-4 rounded-lg">
-                                <p className="text-sm opacity-70 mb-1">Resistance</p>
+                                <p className="text-sm opacity-70 mb-1">Таракан</p>
                                 <p>{state.resistance}</p>
                             </div>
                         </div>
@@ -65,117 +65,117 @@ const StepAnalysis: React.FC<Props> = ({ state, onComplete, onBack }) => {
             case 2:
                 return (
                     <div>
-                        <p className="mb-4">Is the <strong>"Who"</strong> a specific person or group?</p>
+                        <p className="mb-4">Является ли <strong>"Кто"</strong> конкретным человеком или группой?</p>
                         <div className="bg-white/10 p-4 rounded-lg mb-4">
-                            <p className="mb-2">Examples of vague "Who":</p>
+                            <p className="mb-2">Примеры размытого "Кто":</p>
                             <ul className="list-disc list-inside text-sm opacity-80 mb-4">
-                                <li>"The project isn't moving" (Who isn't moving it?)</li>
-                                <li>"No time" (Who doesn't have time for what?)</li>
+                                <li>"Проект не двигается" (Кто его не двигает?)</li>
+                                <li>"Нет времени" (У кого нет времени на что?)</li>
                             </ul>
-                            <p className="font-bold">Your Goal Subject:</p>
+                            <p className="font-bold">Ваш Субъект Улитки:</p>
                             <p className="italic">"{state.goal}"</p>
                         </div>
-                        <p className="text-sm opacity-80">If it's vague, specify exactly WHO.</p>
+                        <p className="text-sm opacity-80">Если "Кто" размыт, уточните, КТО именно.</p>
                     </div>
                 );
             case 3:
                 return (
                     <div>
-                        <p className="mb-4">Is there <strong>one thought</strong> per statement?</p>
-                        <p className="mb-4 text-sm">Avoid "because", "due to" inside the statement itself.</p>
+                        <p className="mb-4">В одном утверждении — <strong>одна мысль</strong>?</p>
+                        <p className="mb-4 text-sm">Избегайте "потому что", "из-за" внутри самого утверждения.</p>
                         <div className="bg-white/10 p-4 rounded-lg mb-4">
-                            <p className="mb-2"><strong>Goal:</strong> {state.goal}</p>
-                            <p className="mb-2"><strong>Resistance:</strong> {state.resistance}</p>
+                            <p className="mb-2"><strong>Улитка:</strong> {state.goal}</p>
+                            <p className="mb-2"><strong>Таракан:</strong> {state.resistance}</p>
                         </div>
-                        <p className="text-sm opacity-80">If you see "because" inside these, split them into separate stickers.</p>
+                        <p className="text-sm opacity-80">Если видите "потому что" внутри, разделите на отдельные стикеры.</p>
                     </div>
                 );
             case 4:
                 return (
                     <div>
-                        <p className="mb-4">If you used <strong>comparatives</strong> (more, less, expensive, long), did you specify a number?</p>
+                        <p className="mb-4">Если вы использовали <strong>сравнения</strong> (больше, меньше, дорого, долго), указали ли вы число?</p>
                         <div className="bg-white/10 p-4 rounded-lg mb-4">
-                            <p className="mb-2">"Too expensive" &rarr; How much exactly?</p>
-                            <p className="mb-2">"Too long" &rarr; How many hours/days?</p>
+                            <p className="mb-2">"Слишком дорого" &rarr; Сколько именно?</p>
+                            <p className="mb-2">"Слишком долго" &rarr; Сколько часов/дней?</p>
                         </div>
-                        <p className="text-sm opacity-80">Vague comparisons feed the Cockroach. Be specific with numbers.</p>
+                        <p className="text-sm opacity-80">Размытые сравнения кормят Таракана. Будьте конкретны с цифрами.</p>
                     </div>
                 );
             case 5:
                 return (
                     <div>
-                        <p className="mb-4">Can you <strong>verify</strong> the property?</p>
-                        <p className="mb-4 text-sm">If you say "Inefficient process", how do you measure efficiency?</p>
+                        <p className="mb-4">Можете ли вы <strong>проверить</strong> это свойство?</p>
+                        <p className="mb-4 text-sm">Если вы говорите "Неэффективный процесс", как вы измеряете эффективность?</p>
                         <div className="bg-white/10 p-4 rounded-lg mb-4">
-                            <p><strong>Ask yourself:</strong> "How would I know for sure that it IS efficient?"</p>
+                            <p><strong>Спросите себя:</strong> "Как я узнаю наверняка, что это ЭФФЕКТИВНО?"</p>
                         </div>
                     </div>
                 );
             case 6:
                 return (
                     <div>
-                        <p className="mb-4">Is the action <strong>observable</strong>?</p>
-                        <p className="mb-4 text-sm">Avoid interpretations like "They don't trust us" or "They are lazy".</p>
+                        <p className="mb-4">Это <strong>наблюдаемое</strong> действие?</p>
+                        <p className="mb-4 text-sm">Избегайте интерпретаций вроде "Они нам не доверяют" или "Они ленивые".</p>
                         <div className="bg-white/10 p-4 rounded-lg mb-4">
-                            <p className="mb-2"><strong>Interpretation:</strong> "He is angry."</p>
-                            <p className="mb-2"><strong>Observation:</strong> "He shouted and banged the table."</p>
+                            <p className="mb-2"><strong>Интерпретация:</strong> "Он злится."</p>
+                            <p className="mb-2"><strong>Наблюдение:</strong> "Он кричал и стучал по столу."</p>
                         </div>
-                        <p className="text-sm opacity-80">Ensure your statements describe what a camera would see.</p>
+                        <p className="text-sm opacity-80">Убедитесь, что ваши утверждения описывают то, что увидела бы видеокамера.</p>
                     </div>
                 );
             case 7:
                 return (
                     <div>
-                        <p className="mb-4">Is the <strong>quantity</strong> clear for all parts?</p>
+                        <p className="mb-4">Ясно ли <strong>количество</strong> для всех частей?</p>
                         <div className="bg-white/10 p-4 rounded-lg mb-4">
-                            <p className="mb-2">"Colleagues are late" &rarr; All colleagues? Always? Or just Bob on Tuesdays?</p>
-                            <p className="mb-2">"We miss deadlines" &rarr; Every deadline? Or 1 out of 10?</p>
+                            <p className="mb-2">"Коллеги опаздывают" &rarr; Все коллеги? Всегда? Или только Боб по вторникам?</p>
+                            <p className="mb-2">"Мы срываем сроки" &rarr; Каждый срок? Или 1 из 10?</p>
                         </div>
-                        <p className="text-sm opacity-80">Don't generalize. Be precise.</p>
+                        <p className="text-sm opacity-80">Не обобщайте. Будьте точны.</p>
                     </div>
                 );
             case 8:
                 return (
                     <div>
-                        <p className="mb-4">Read this aloud. Does it sound reasonable?</p>
+                        <p className="mb-4">Прочитайте это вслух. Звучит разумно?</p>
                         <div className="bg-white/10 p-6 rounded-xl text-lg leading-relaxed">
-                            <p><strong>IF</strong> {state.goal},</p>
-                            <p><strong>THEN</strong> {state.resistance},</p>
-                            <p><strong>BECAUSE</strong> {state.justification}.</p>
+                            <p><strong>ЕСЛИ</strong> {state.goal},</p>
+                            <p><strong>ТО</strong> {state.resistance},</p>
+                            <p><strong>ПОТОМУ ЧТО</strong> {state.justification}.</p>
                         </div>
                     </div>
                 );
             case 9:
                 return (
                     <div>
-                        <p className="mb-4">Check for <strong>Tautologies</strong> (Circular Logic).</p>
+                        <p className="mb-4">Проверьте на <strong>Тавтологии</strong> (Круговая логика).</p>
                         <div className="bg-white/10 p-4 rounded-lg mb-4">
-                            <p className="mb-2">❌ "If I lose weight, I will be thinner." (Same thing)</p>
-                            <p className="mb-2">✅ "If I lose weight, I can wear my favorite jeans." (New capability)</p>
+                            <p className="mb-2">❌ "Если я сброшу вес, я буду худым." (Одно и то же)</p>
+                            <p className="mb-2">✅ "Если я сброшу вес, я смогу носить свои любимые джинсы." (Новая возможность)</p>
                         </div>
-                        <p className="text-sm opacity-80">Ensure the Effect is distinct from the Cause.</p>
+                        <p className="text-sm opacity-80">Убедитесь, что Следствие отличается от Причины.</p>
                     </div>
                 );
             case 10:
                 return (
                     <div>
-                        <p className="mb-4">Does the <strong>"Because"</strong> explain the mechanism?</p>
+                        <p className="mb-4">Объясняет ли <strong>"Потому что"</strong> механизм?</p>
                         <div className="bg-white/10 p-4 rounded-lg mb-4">
-                            <p className="mb-2">❌ "...because I want to." (Not a mechanism)</p>
-                            <p className="mb-2">✅ "...because physical activity creates a calorie deficit..." (Mechanism)</p>
+                            <p className="mb-2">❌ "...потому что я так хочу." (Не механизм)</p>
+                            <p className="mb-2">✅ "...потому что физическая активность создает дефицит калорий..." (Механизм)</p>
                         </div>
-                        <p className="text-sm opacity-80">The justification should explain HOW the cause leads to the effect.</p>
+                        <p className="text-sm opacity-80">Обоснование должно объяснять, КАК причина приводит к следствию.</p>
                     </div>
                 );
             default:
-                return <p>Check {currentCheck + 1}: {CHECKS[currentCheck].description}</p>;
+                return <p>Проверка {currentCheck + 1}: {CHECKS[currentCheck].description}</p>;
         }
     };
 
     return (
         <div className="animate-fade-in">
             <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold">Analysis: Step {currentCheck + 1}/{CHECKS.length}</h2>
+                <h2 className="text-2xl font-bold">Анализ: Шаг {currentCheck + 1}/{CHECKS.length}</h2>
                 <span className="bg-white/20 px-3 py-1 rounded-full text-sm">
                     {CHECKS[currentCheck].title}
                 </span>
@@ -190,14 +190,14 @@ const StepAnalysis: React.FC<Props> = ({ state, onComplete, onBack }) => {
                     onClick={currentCheck === 0 ? onBack : () => setCurrentCheck(prev => prev - 1)}
                     className="text-white/70 hover:text-white px-4 py-2 transition-colors"
                 >
-                    Back
+                    Назад
                 </button>
                 <div className="space-x-4">
                     <button
                         onClick={handleNextCheck}
                         className="bg-white text-indigo-600 px-8 py-3 rounded-full font-bold hover:bg-indigo-50 transition-colors"
                     >
-                        {currentCheck === CHECKS.length - 1 ? "Finish" : "Next Check"}
+                        {currentCheck === CHECKS.length - 1 ? "Завершить" : "Следующая проверка"}
                     </button>
                 </div>
             </div>

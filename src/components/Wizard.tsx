@@ -44,6 +44,7 @@ const Wizard: React.FC = () => {
             {step === 'RESISTANCE' && (
                 <StepResistance
                     initialValue={state.resistance}
+                    goal={state.goal}
                     onNext={handleResistanceSubmit}
                     onBack={() => setStep('GOAL')}
                 />
@@ -51,6 +52,8 @@ const Wizard: React.FC = () => {
             {step === 'JUSTIFICATION' && (
                 <StepJustification
                     initialValue={state.justification}
+                    goal={state.goal}
+                    resistance={state.resistance}
                     onNext={handleJustificationSubmit}
                     onBack={() => setStep('RESISTANCE')}
                 />
@@ -64,18 +67,18 @@ const Wizard: React.FC = () => {
             )}
             {step === 'RESULT' && (
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold mb-4">Congratulations!</h2>
-                    <p className="text-xl mb-6">You have successfully analyzed your resistance.</p>
+                    <h2 className="text-3xl font-bold mb-4">Поздравляем!</h2>
+                    <p className="text-xl mb-6">Вы успешно проанализировали свое сопротивление.</p>
                     <div className="bg-white/10 p-6 rounded-xl text-left mb-6">
-                        <p className="mb-2"><strong>Goal:</strong> {state.goal}</p>
-                        <p className="mb-2"><strong>Resistance:</strong> {state.resistance}</p>
-                        <p className="mb-2"><strong>Justification:</strong> {state.justification}</p>
+                        <p className="mb-2"><strong>Улитка (Цель):</strong> {state.goal}</p>
+                        <p className="mb-2"><strong>Таракан (Сопротивление):</strong> {state.resistance}</p>
+                        <p className="mb-2"><strong>Обоснование:</strong> {state.justification}</p>
                     </div>
                     <button
                         onClick={() => window.location.reload()}
                         className="bg-white text-purple-600 px-6 py-3 rounded-full font-bold hover:bg-purple-100 transition-colors"
                     >
-                        Start Over
+                        Начать заново
                     </button>
                 </div>
             )}
