@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# 🐌 Snails vs Cockroaches / Улитки против Тараканов 🪳
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[English](#english) | [Русский](#russian)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<a name="english"></a>
+## 🇬🇧 English
 
-## React Compiler
+### About the Project
+**Snails vs Cockroaches** is an interactive web application designed to help you overcome internal resistance to useful tasks. It is based on the "Jedi Techniques" methodology by **Maxim Dorofeev**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The app acts as a facilitator ("The Lead"), guiding you through a structured cognitive process to analyze your fears and excuses.
 
-## Expanding the ESLint configuration
+### How It Works
+The process consists of 4 steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **The Snail (Goal)**: You define a positive, useful thing you want to do but are procrastinating on (e.g., "I want to exercise every morning").
+2.  **The Cockroach (Resistance)**: You identify the negative consequence or fear stopping you.
+    *   *Format*: "IF I do this, THEN [bad thing] will happen."
+3.  **The Justification**: You explain the logic behind your fear.
+    *   *Format*: "...BECAUSE [reason]."
+4.  **The Analysis (Jedi Check)**: The app guides you through a rigorous **10-point checklist** to test your logic for cognitive distortions, vague definitions, and circular reasoning.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Tech Stack
+*   **Framework**: React + TypeScript (Vite)
+*   **Styling**: TailwindCSS v4 (Glassmorphism design)
+*   **Deployment**: GitHub Pages
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Running Locally
+```bash
+# Install dependencies
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<a name="russian"></a>
+## 🇷🇺 Русский
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### О проекте
+**Улитки против Тараканов** — это интерактивное веб-приложение, помогающее преодолеть внутреннее сопротивление к полезным делам. Проект основан на практике из курса "Джедайские техники" **Максима Дорофеева**.
+
+Приложение выступает в роли "Ведущего", проводя вас через структурированный процесс анализа ваших страхов и отговорок.
+
+### Как это работает
+Процесс состоит из 4 шагов:
+
+1.  **Улитка (Цель)**: Вы формулируете полезное дело, которое хотите сделать, но откладываете (например, "Я хочу делать зарядку каждое утро").
+2.  **Таракан (Сопротивление)**: Вы находите негативное следствие или страх, который вас останавливает.
+    *   *Формат*: "ЕСЛИ я буду это делать, ТО [случится что-то плохое]."
+3.  **Обоснование**: Вы объясняете логику вашего страха.
+    *   *Формат*: "...ПОТОМУ ЧТО [причина]."
+4.  **Анализ (Проверка)**: Приложение проводит вас через строгий **чек-лист из 10 пунктов**, проверяя вашу логику на когнитивные искажения, размытые формулировки и тавтологии.
+
+### Технологии
+*   **Фреймворк**: React + TypeScript (Vite)
+*   **Стили**: TailwindCSS v4 (Glassmorphism дизайн)
+*   **Деплой**: GitHub Pages
+
+### Запуск локально
+```bash
+# Установка зависимостей
+npm install
+
+# Запуск сервера разработки
+npm run dev
 ```
